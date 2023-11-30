@@ -11,15 +11,20 @@ $conexao = new PDO("mysql:host=localhost;dbname=aulapdo", "root" , ""); // estam
 
 // var_dump($conexao);
 
-$select = "SELECT * FROM tb_produtos WHERE nome_produto LIKE '%A%'";
+$select = "SELECT * FROM tb_produtos";
 
 
 $resultado = $conexao->query($select);
 
 $consulta = $resultado->fetchAll();
 
-echo "<pre>";
+foreach ($consulta as $linha) {
 
-var_dump($consulta);
+echo "<hr> <pre>";
+var_dump ($linha ['nome_produto']);
+echo "<ul>", $consulta ['nome_produto'];
+
+}
+
 
 ?>
