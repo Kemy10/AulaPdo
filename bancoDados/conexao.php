@@ -12,19 +12,20 @@ $conexao = new PDO("mysql:host=localhost;dbname=aulapdo", "root" , ""); // estam
 // var_dump($conexao);
 
 $select = "SELECT * FROM tb_produtos";
-
-
-$resultado = $conexao->query($select);
-
+ 
+$resultado = $conexao->query($select );
 $consulta = $resultado->fetchAll();
 
+ 
+
+
+echo '<ul>';
 foreach ($consulta as $linha) {
 
-echo "<hr> <pre>";
-var_dump ($linha ['nome_produto']);
-echo "<ul>", $consulta ['nome_produto'];
+echo '<li>'. $linha['nome_produto'] .  '</li>';
 
 }
 
-
+echo '</ul>';
+// var_dump($consulta);
 ?>
